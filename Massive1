@@ -1,0 +1,124 @@
+using System;
+using System.Collections.Immutable;
+using System.Security.Cryptography.X509Certificates;
+
+namespace odnomerniy_massive
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Massive Array = new Massive();
+            Console.WriteLine("Insert multiplikator");
+            Array.Skalyar = Convert.ToInt32(Console.ReadLine());
+            Array.CreateMassive();
+            Console.WriteLine("\t Array Lenght is " + Array.n);
+
+
+
+            Console.ReadKey();
+        }
+        class Massive
+        {
+            public int N { get; set; }
+            public int[] Array
+            {
+                get { return new int[n]; }
+                set { Array[n] = Convert.ToInt32(value); }
+            }
+
+            public int n { get { return N; } } //размер массива
+            private int skalyar;
+            public int Skalyar
+
+            {
+                set
+                {
+                    skalyar = value;
+                }
+            }
+            public Massive() { }
+            public Massive(int n) { N = n; int[] Array = new int[n]; }
+
+
+            public void CreateMassive()
+            {
+                Console.WriteLine("Enter the length of Array N=");
+                N = Convert.ToInt32(Console.ReadLine());
+                int[] Array = new int[N];
+                Console.WriteLine($"Enter {N} the elements of Array");
+                for (int i = 0; i < N; i++)
+                {
+                    Array[i] = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.WriteLine("Array created:");
+                for (int n = 0; n < N; n++)
+                {
+                    Console.Write("\t" + Array[n]);
+                }
+                int temp;
+                for (int i = 0; i < N; i++)
+                {
+                    for (int j = i + 1; j < N; j++)
+                    {
+                        if (Array[i] > Array[j])
+                        {
+                            temp = Array[i];
+                            Array[i] = Array[j];
+                            Array[j] = temp;
+                        }
+                        for (int a = 0; a < n; a++)
+
+                            Console.WriteLine("Array sorted " + Array[a]);
+
+                    }
+
+
+                    Console.Write("\t Multiplied Array created");
+                    for (int n = 0; n < N; n++)
+                    {
+                        Console.WriteLine("\t" + Array[n] * skalyar);
+                    }
+
+                    void Sort()
+                    {
+                        int temp;
+                        for (int i = 0; i < N; i++)
+                        {
+                            for (int j = i + 1; j < N; j++)
+                            {
+                                if (Array[i] > Array[j])
+                                {
+                                    temp = Array[i];
+                                    Array[i] = Array[j];
+                                    Array[j] = temp;
+                                }
+                                for (int a = 0; a < n; a++)
+
+                                    Console.WriteLine("Array sorted " + Array[a]);
+
+                            }
+                        }
+                    }
+
+
+
+
+
+
+
+                }
+
+
+            }
+
+
+
+
+
+        }
+    }
+}
+
+
+
